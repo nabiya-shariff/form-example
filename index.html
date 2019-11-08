@@ -1,78 +1,107 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
+<html lang="en">
 
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid rgb(12, 175, 99);
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
+  <head>
+    <meta charset="utf-8">
+    <title>Example Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Internal Styling -->
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-input[type=submit] {
-  background-color: rgb(221, 31, 110);
-  color: rgb(255, 255, 255);
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+      * {
+        box-sizing: border-box;
+      }
 
-input[type=submit]:hover {
-  background-color: #a04582;
-}
+      form {
+        font-size: 1.25rem;
+      }
 
-.container {
-  border-radius: 5px;
-  background-color: #dbe98a;
-  padding: 20px;
-}
-</style>
-</head>
-<body>
-<h3>Contact Form</h3>
-<form>
-        <fieldset>
-         <legend> Please feel free to send a message</legend>
-         <div class="container">
-  <form action="/action_page.php">
+      fieldset {
+        background-color: rgb(239, 239, 239);
+      }
+
+      legend {
+        background-color: white;
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        border: 2px solid lightgray;
+      }
+
+      input[type=email],
+      select,
+      textarea {
+        width: 60%;
+        padding: 12px;
+        border: 1px solid rgb(12, 175, 99);
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+
+      button {
+        background-color: rgb(221, 31, 110);
+        color: rgb(255, 255, 255);
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+
+      button:hover {
+        background-color: #a04582;
+      }
+
+      .container {
+        border-radius: 5px;
+        background-color: #dbe98a;
+        padding: 20px;
+      }
+
+      .radio {
+        width: 60%;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h3>Contact Form</h3>
     <form name="contact" method="POST" data-netlify="true">
+      <!-- outer fieldset -->
+      <fieldset>
+        <legend> Please feel free to send a message</legend>
         <p>
-          <label>Email: </label> 
-          <p>
-          </p> <input type="email" name="email"/></label>
+          <label for="email">Email:</label>
         </p>
-        <p>   
-    <label for="subject">Message</label>
+        <input id="email" type="email" name="email" />
+        <p>
+          <label for="subject">Message:</label>
+        </p>
+        <textarea id="subject" name="subject" placeholder=""></textarea>
 
-    <textarea id="subject" name="subject" placeholder=""style="height:200px"></textarea>
-    <div id="wrapper">
-            <fieldset>
-                    <legend>Would you like a reply?</legend>
-        <label for="yes_no_radio"></label>
-      <p>
-      <input type="radio" name="yes_no" checked>Yes</input>
-      </p>
-      <p>
-      <input type="radio" name="yes_no">No</input>
-      </p>
-      </div>
-      <p> </p>
-    <input type="submit" value="Send Message">
-  </form>
-  </form>
-</fieldset>
-</form>
-</fieldset>
-</div>
+        <!-- inner fieldset -->
+        <fieldset class="radio">
+          <legend>Would you like a reply?</legend>
+          <p>
+            <input type="radio" name="yes_no" checked>Yes
+          </p>
+          <p>
+            <input type="radio" name="yes_no">No
+          </p>
 
-</body>
+        </fieldset>
+        <p>
+          <button type="submit">Send Message</button>
+        </p>
+      </fieldset>
+    </form>
+
+  </body>
+
 </html>
